@@ -20,7 +20,7 @@ export const match = (a, b, caseIncensitive = true) => {
 };
 
 // JSON.stringify from ethers.BigNumber is pretty horrendous
-// So we have a custom stringify functino
+// So we have a custom stringify function
 export const stringifyBN = (o, toHex = false) => {
   if (o === null || o === undefined) {
     return o;

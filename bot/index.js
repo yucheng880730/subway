@@ -99,6 +99,8 @@ const sandwichUniswapV2RouterTx = async (txHash) => {
     weth,
     token
   );
+
+   // Calculate the max sandwich amount
   const optimalWethIn = calcSandwichOptimalIn(
     userAmountIn,
     userMinRecv,
@@ -314,6 +316,7 @@ const main = async () => {
       placeholders.unshift("[" + new Date().toISOString() + "] " + obj);
     else {
       // This handles console.log( object )
+      // unshift() 添加一個或多個元素至陣列開頭，並回傳陣列新長度
       placeholders.unshift(obj);
       placeholders.unshift("[" + new Date().toISOString() + "] %j");
     }

@@ -83,6 +83,7 @@ contract Sandwich {
             // amount
             mstore(0xa0, amountIn)
 
+            // call contract at address "token"
             let s1 := call(sub(gas(), 5000), token, 0, 0x7c, 0x44, 0, 0)
             if iszero(s1) {
                 // WGMI
@@ -116,6 +117,7 @@ contract Sandwich {
             // empty bytes
             mstore(0xe0, 0x80)
 
+            // call contract at address "pair"
             let s2 := call(sub(gas(), 5000), pair, 0, 0x7c, 0xa4, 0, 0)
             if iszero(s2) {
                 revert(3, 3)

@@ -65,6 +65,8 @@ export const authKeyWallet = new ethers.Wallet(
 );
 
 // Common contracts
+// ethers.Contract( address , abi , signerOrProvider )
+// Creating Instances
 export const uniswapV2Pair = new ethers.Contract(
   ethers.constants.AddressZero,
   IUniswapV2PairAbi,
