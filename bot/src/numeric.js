@@ -67,6 +67,7 @@ export const calcSandwichOptimalIn = (
       frontrunState.newReserveA,
       frontrunState.newReserveB
     );
+    // return victim receive TokenB
     return victimState.amountOut;
   };
 

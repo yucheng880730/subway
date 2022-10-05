@@ -5,6 +5,7 @@ import { match } from "./utils.js";
 
 /* 
   Sorts tokens
+  依 token address 先後排序
 */
 export const sortTokens = (tokenA, tokenB) => {
   if (ethers.BigNumber.from(tokenA).lt(ethers.BigNumber.from(tokenB))) {
@@ -31,6 +32,8 @@ export const getUniv2PairAddress = (tokenA, tokenB) => {
 
 /*
   Get reserve helper function
+  
+  getReserves() 可以看到資金池中確實有匯入的資金
 */
 export const getUniv2Reserve = async (pair, tokenA, tokenB) => {
   const [token0] = sortTokens(tokenA, tokenB);
@@ -44,6 +47,7 @@ export const getUniv2Reserve = async (pair, tokenA, tokenB) => {
 
 /*
  Uniswap v2; x * y = k formula
+             A * B = k
 
  How much out do we get if we supply in?
 */
@@ -64,7 +68,7 @@ export const getUniv2DataGivenIn = (aIn, reserveA, reserveB) => {
   if (newReserveA.lt(reserveA)) {
     newReserveA = ethers.constants.MaxInt256;
   }
-
+ 
   return {
     amountOut: bOut,
     newReserveA,

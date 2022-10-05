@@ -66,6 +66,7 @@ const sandwichUniswapV2RouterTx = async (txHash) => {
     return;
   }
 
+  // decoded transaction get specific data
   const { path, amountOutMin, deadline } = routerDataDecoded;
 
   // If tx deadline has passed, just ignore it
